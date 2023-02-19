@@ -1,0 +1,108 @@
+
+.body{
+    /* border: 1px solid green; */
+    width: 80%;
+    height: 100vh;
+    color: white;
+    padding: 30px;
+    overflow-y: overlay;
+    /* background-color:rgb(91,87,115) ; */
+    background: linear-gradient(rgb(27, 15, 57),rgb(0, 0, 1));
+}
+
+.body::-webkit-scrollbar {
+    display: none;
+}
+
+.body-info{
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.body-info > img {
+    height:16vw;
+    margin: 0 1.5rem;
+    box-shadow: 0 4px 60px rgba(0, 0, 0.5);
+    min-height: 169px;
+}
+
+.body-info-text {
+    flex: 1;
+    
+}
+
+.body-info-text > h2{
+    font-size: 5vw;
+    margin-bottom: 0.69rem;
+}
+
+.body-info-text > strong {
+    font-size: 13px;
+}
+
+.body-info-text > p {
+    font-size: 14px;
+    color: rgb(169, 168, 168);
+    font-weight: 500;
+}
+
+.body-icons {
+    display: flex;
+    align-items: center;
+    margin-left: 1.69rem;
+    margin-top: 1.69rem;
+    color: rgb(169, 168, 168);
+}
+
+.body-icons > *.MuiSvgIcon-root:hover{
+    color: white;
+}
+
+.body-play-shuffle {
+    color: #1fdf64;
+    font-size: 60px !important;
+    margin-right: 25px;
+}
+
+.body-play-shuffle:hover{
+    transition: 100ms transform ease-in;
+    transform: scale(0.95) ;
+    color: #1fdf64 !important;
+}
+
+.song-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(66, 65, 65);
+    padding: 10px 0;
+    
+}
+
+.song-info1 {
+    flex: 0.1;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+} 
+
+.song-info1 > span,
+.song-info2 > span
+ {
+    color: rgb(158, 157, 157);
+    font-size: 14px; 
+}
+.song-info1 > strong{
+    color: rgb(158, 157, 157);
+}
+.song-info2 > *.MuiSvgIcon-root{
+    color: rgb(158, 157, 157);
+    font-size: 18px;
+}
+.song-info2 {
+    flex: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+} 
