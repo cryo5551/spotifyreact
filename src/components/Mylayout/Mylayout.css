@@ -1,0 +1,28 @@
+
+
+
+.mylayout{
+    display: flex;
+}
+
+.__sidebar{
+    flex: 0.2;
+    min-width: 230px;
+    height: 100vh;
+    background-color: #040404;
+    color: white;
+}
+.__children{
+    flex: 0.8;
+    /* width: 80%; */
+    height: 100vh;
+    color: white;
+    padding: 30px;
+    overflow-y: overlay;
+    /* background-color:rgb(91,87,115) ; */
+    background: linear-gradient(rgb(27, 15, 57),rgb(0, 0, 1));
+}
+
+.__children::-webkit-scrollbar {
+    display: none;
+}

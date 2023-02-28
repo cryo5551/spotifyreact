@@ -13,16 +13,20 @@
 }
 
 .songs-title {
-    flex: 0.45;
+    flex: 0.39;
     display: flex;
     align-items: center;
 }
 
 
 .songs-info {
-    flex: 0.5;
+    flex: 0.55;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.song:hover {
+    background-color: rgb(45, 45, 45);
 }
 

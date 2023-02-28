@@ -41,7 +41,7 @@ const Body = () => {
                 </div>
                 <div className='song-info2'>
                     <span>ALBUM</span>
-                    <span>DATE ADDED</span>
+                    <span></span>
                 <AccessTimeIcon/>
                 </div>
                 

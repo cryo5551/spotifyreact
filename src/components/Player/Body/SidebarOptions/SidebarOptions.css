@@ -20,4 +20,14 @@
 .sidebarOptions > p{
     margin: 10px 20px;
     font-size: 14px;
+    
+}
+
+.nev-items{
+    color: rgb(155, 155, 155);
+    text-decoration: none !important;
+}
+
+.nev-items:hover{
+    color: white;
 }

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import './Player.css';
 import { useContextData } from '../Context/StateProvider'
 import Body from './Body/Body';
-import Sidebar from './Body/Sidebar';
-import Footer from './Footer/Footer';
+// import Sidebar from './Body/Sidebar';
+// import Footer from './Footer/Footer';
 
 const  Player= ({spotify}) => {
 
@@ -20,7 +20,7 @@ const  Player= ({spotify}) => {
         <div className='player-body'>
 
             {/* sidebar */}
-            <Sidebar/>
+            {/* <Sidebar/> */}
         
             {/* header and body content */}
             <Body/>
@@ -28,7 +28,7 @@ const  Player= ({spotify}) => {
         </div>
 
         {/* footer (control Bar) */}
-        <Footer/>
+        {/* <Footer/> */}
 
     </div>
   )
