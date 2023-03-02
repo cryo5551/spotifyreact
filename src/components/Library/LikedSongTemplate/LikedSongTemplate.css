@@ -1,0 +1,46 @@
+
+
+
+._liked-song-template {
+    width: 37vw;
+    height: 25vw;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: 5;
+    background: linear-gradient(to bottom right,#450bf5,#8e8de5);
+    margin: 20px 10px 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+._liked-song-template > h1 {
+    font-size: 2.5vw;
+    padding: 10px 5px;
+}
+._liked-song-template > h3 {
+    font-weight: 500;
+    padding: 10px 5px;
+}
+._liked-song-template > h5 {
+    font-weight: 600;
+    font-size: 1.179vw;
+    padding: 10px 5px 25px 5px;
+    line-height: 1.69vw;
+}
+
+.liked-play-shuffle {
+    color: rgb(24, 24, 24);
+    font-size: 30px !important;
+    margin-right: 25px;
+    background-color:#1fdf64;
+    padding: 10px;
+    border-radius: 99px;
+    box-sizing: content-box;
+}
+.position {
+    position: absolute;
+    right: -10px;
+    bottom: 10px;
+}

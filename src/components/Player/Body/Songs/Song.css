@@ -12,15 +12,28 @@
     padding: 5px;
 }
 
+.current-song {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    color: #1fdf64;
+    /* background-color: rgb(79, 79, 79); */
+}
+
 .songs-title {
-    flex: 0.39;
+    flex: 0.45;
     display: flex;
     align-items: center;
 }
 
+.songs:hover {
+    background-color: rgb(54, 54, 54);
+    color: white!;
+}
+
 
 .songs-info {
-    flex: 0.55;
+    flex: 0.45;
     display: flex;
     align-items: center;
     justify-content: space-between;

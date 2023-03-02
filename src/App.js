@@ -3,8 +3,9 @@ import './App.css';
 import { getTokenFromUrl } from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Login from './components/LogIn/Login';
-import Player from './components/Player/Player';
+// import Player from './components/Player/Player';
 import { useContextData } from './components/Context/StateProvider';
+import Home from './components/Home/Home';
 
 function App() {
 
@@ -29,19 +30,6 @@ function App() {
           payload: playlists
         })
       });
-
-  
-      spotify.getPlaylist("37i9dQZEVXcQX9OpY7Rfve")
-        .then(response =>
-          dispatch({
-            type: "SET_DISCOVER_WEEKLY",
-            payload: response
-          }));
-      
-      spotify.getMyCurrentPlaybackState().then(e=> dispatch({ type: "SET_PLAYBACK", payload: e}));
-      spotify.getMyCurrentPlayingTrack().then(e => dispatch({ type: "SET_CURRENT_SONG", payload: e }));
-
-
     }
     window.location.hash = "";
   }, []);
@@ -51,7 +39,7 @@ function App() {
   return (
     <div className="app">
 
-      {state?.token ? <Player spotify={spotify} /> : <Login />}
+      {state?.token ? <Home spotify={spotify} /> : <Login />}
     </div>
   );
 }

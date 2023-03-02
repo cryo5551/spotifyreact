@@ -6,9 +6,10 @@ export const INITIAL_STATE = {
     discover_weekly: null,
     top_artists: null,
     playing: false,
-    current_song:null,
+    current_Playing:null,
     item: null,
     playback: null,
+    uri: "spotify:playlist:37i9dQZEVXcQX9OpY7Rfve"
     // token: "BQC3H9CpbvI3HN9X1UrxKGw0UyIiPw7VHipH3fe46n84uZJyUCNuT3Q1iROJuvQFDpiIAfq-XGWUMm7WAs8LStVZbLc87dSPPdsPTUUH6jj7ksp8j5HXCP3S7UaHzwT-3OKNYntTfFCbIzC5S5-Bql-qwMbp9remwSh7Txoqilt7ZCcq0uEpO0FUcQwsKwh4CmLtIWWYYYOeV2SThw",
 }
 
@@ -25,14 +26,21 @@ const reducer = (state=INITIAL_STATE,action) => {
         case "SET_PLAYLISTS":
             return {...state, playlists: action.payload}
 
-        case "SET_DISCOVER_WEEKLY":
-            return {...state, discover_weekly: action.payload }
-
         case "SET_PLAYBACK":
             return {...state, playback: action.payload }
             
-        case "SET_CURRENT_SONG":
-            return {...state, current_song: action.payload }
+        case "SET_CURRENT_PLAYING":
+            return {...state, current_playing: action.payload }
+
+        case "SET_URI":
+            return {...state, uri: action.payload}
+
+        case "SET_LIKED_SONGS":
+            return {...state, liked_songs: action.payload}
+
+        case "SET_PATH":
+            return { ...state, path: action.payload }
+
         default: return state;
     }
 }

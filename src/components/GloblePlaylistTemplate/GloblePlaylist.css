@@ -1,0 +1,50 @@
+
+
+.globle-playlist {
+    background-color: #1a1a1a;
+    padding: 18px 16px;
+    border-radius: 5px;
+    margin: 15px 10px;
+    position: relative;
+}
+.globle-playlist > img {
+    width: 190px;
+    /* height: 230px; */
+    border-radius: 5px;
+
+}
+
+.globle-playlist:hover {
+    background-color: rgb(44, 44, 44);
+}
+
+.globle-playlist > h4 {
+    padding: 10px 1px;
+}
+
+.globle-playlist> h5 {
+    font-weight: 500;
+    color: grey;
+    padding: 1px;
+}
+
+.show-icon-globle {
+    color: #1fdf64;
+    font-size: 55px !important;
+    z-index: 100;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+}
+
+.show-icon-globle:hover {
+    transition: transform 0.4s ease-in-out;
+    transform: scale(1.08) !important;
+}
+
+.hide-icon-globle{
+    color: #1fdf64;
+    font-size: 60px !important;
+    display: none !important;
+}
+

@@ -1,0 +1,36 @@
+
+
+/* .header {
+    display: none;
+} */
+.search-container > h2 {
+    padding: 10px;
+}
+.search-bar {
+    width: 30vw;
+    background-color: white;
+    color: grey;
+    border-radius: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    max-height: 50px;
+    min-width: 90px;
+    z-index: 10000000;
+    position: fixed;
+    top: 20px;
+
+    
+}
+
+.search-bar > input {
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+.categorys-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

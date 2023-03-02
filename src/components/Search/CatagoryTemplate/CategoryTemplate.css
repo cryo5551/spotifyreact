@@ -1,0 +1,23 @@
+
+
+
+.catagory-template{
+    padding: 20px;
+    background-color: black;
+    margin: 10px;
+    border-radius: 6px;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: pointer;
+}
+.catagory-template > img{
+    width: 100px;
+    height: 100px;
+    margin-left: 115px;
+    margin-top: 80px;
+    transform: rotate(25deg);
+}

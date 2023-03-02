@@ -1,0 +1,24 @@
+
+
+
+
+.home-playlists{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.home-container > h1 {
+    padding: 10px;
+}
+
+.home-container > h2 {
+    padding: 10px;
+}
+
+.recently-played {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* padding: 10px; */
+}

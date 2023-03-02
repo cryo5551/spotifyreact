@@ -1,0 +1,29 @@
+
+
+.recently-played-container {
+    background-color: #1a1a1a;
+    padding: 18px 16px;
+    border-radius: 5px;
+    margin: 10px;
+    /* width: 230px; */
+}
+
+.recently-played-container > img {
+    width: 190px;
+    border-radius: 5px;
+
+}
+
+.recently-played-container:hover {
+    background-color: rgb(44, 44, 44);
+}
+
+.recently-played-container > h4 {
+    padding: 10px 1px;
+}
+
+.recently-played-container > h5 {
+    font-weight: 500;
+    color: grey;
+    padding: 1px;
+}

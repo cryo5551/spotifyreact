@@ -10,7 +10,7 @@ import SpotifyPlayer from 'react-spotify-web-playback';
 
 const Footer = () => {
 
-    const [{ token }] = useContextData()
+    const [{ token,uri }] = useContextData()
 
 
     return (
@@ -30,7 +30,7 @@ const Footer = () => {
                     textDecoration: 'none',
                 }}
                 token={token}
-                uris={["spotify:playlist:37i9dQZEVXcQX9OpY7Rfve"]}
+                uris={uri}
                 hideAttribution = {true}
                 showSaveIcon = {true}
             />
