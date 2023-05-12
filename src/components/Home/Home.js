@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import "./Home.css";
 import { useContextData } from '../Context/StateProvider';
 import PlaylistTemplate from '../PlaylistTemplate/PlaylistTemplate';
-// import GloblePlayList from '../GloblePlaylistTemplate/GloblePlayList';
 import RecentlyPlayed from './RecentlyPlayedTemplate/RecentlyPlayed';
-// import SpotifyWebApi from 'spotify-web-api-js';
+
 
 const Home = ({ spotify }) => {
 
@@ -12,9 +11,9 @@ const Home = ({ spotify }) => {
     const [recentlyPlayed, setRecentlyPlayed] = useState();
 
     console.log(state);
-    console.log(recentlyPlayed);
+    // console.log(recentlyPlayed);
 
-    // const spotify = new SpotifyWebApi();
+
     const { playlists,token,liked_songs } = state;
 
     spotify.setAccessToken(token);
@@ -29,11 +28,11 @@ const Home = ({ spotify }) => {
         spotify.getMySavedTracks({limit:50}).then(playlists => dispatch({type:"SET_LIKED_SONGS", payload:playlists}));
         spotify.getMyRecentlyPlayedTracks({limit:4}).then(playlists => setRecentlyPlayed(playlists));
         
-        spotify.getFeaturedPlaylists().then(playlists => console.log("Featured",playlists));
-        spotify.getNewReleases().then(playlists => console.log("new Releases",playlists))
+        // spotify.getFeaturedPlaylists().then(playlists => console.log("Featured",playlists));
+        // spotify.getNewReleases().then(playlists => console.log("new Releases",playlists))
         
-        spotify.getMyTopArtists().then(playlists => console.log("top Artist",playlists))
-        spotify.getCategoryPlaylists("toplists").then(playlists => console.log("toplist",playlists));
+        // spotify.getMyTopArtists().then(playlists => console.log("top Artist",playlists))
+        // spotify.getCategoryPlaylists("toplists").then(playlists => console.log("toplist",playlists));
         getHomeInfo();
     },[]);
 

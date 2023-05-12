@@ -1,0 +1,13 @@
+
+
+.__children{
+    flex: 0.8;
+    height: 85vh;
+    color: white;
+    overflow-y: overlay;
+    background: linear-gradient(rgb(44, 44, 44),rgb(0, 0, 1));
+}
+
+.__children::-webkit-scrollbar {
+    display: none;
+}

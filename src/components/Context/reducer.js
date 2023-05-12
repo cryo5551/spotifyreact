@@ -9,6 +9,8 @@ export const INITIAL_STATE = {
     current_Playing:null,
     item: null,
     playback: null,
+    scroll_position: 20,
+    playlist_album: null,
     uri: "spotify:playlist:37i9dQZEVXcQX9OpY7Rfve"
     // token: "BQC3H9CpbvI3HN9X1UrxKGw0UyIiPw7VHipH3fe46n84uZJyUCNuT3Q1iROJuvQFDpiIAfq-XGWUMm7WAs8LStVZbLc87dSPPdsPTUUH6jj7ksp8j5HXCP3S7UaHzwT-3OKNYntTfFCbIzC5S5-Bql-qwMbp9remwSh7Txoqilt7ZCcq0uEpO0FUcQwsKwh4CmLtIWWYYYOeV2SThw",
 }
@@ -40,6 +42,12 @@ const reducer = (state=INITIAL_STATE,action) => {
 
         case "SET_PATH":
             return { ...state, path: action.payload }
+
+        case "SET_SCROLL_POSITION":
+            return {...state, scroll_position: action.payload}
+
+        case "SET_PLAYLIST_ALBUM":
+            return {...state, playlist_album: action.payload}
 
         default: return state;
     }

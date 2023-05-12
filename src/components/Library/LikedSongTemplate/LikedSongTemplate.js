@@ -1,8 +1,6 @@
 import React from 'react';
 import { useContextData } from '../../Context/StateProvider';
 import './LikedSongTemplate.css';
-import PlayCircleFilledRoundedIcon from '@mui/icons-material/PlayCircleFilledRounded';
-import PauseCircleFilledRoundedIcon from '@mui/icons-material/PauseCircleFilledRounded';
 import SpotifyWebApi from 'spotify-web-api-js';
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -21,7 +19,7 @@ const LikedSongTemplate = () => {
 
     return (
         <div className='_liked-song-template'>
-            <h5>{songNames.join(" ● ").substring(0,180)} ...</h5>
+            <h5>{songNames.join(" ● ").substring(0,170)} ...</h5>
             <h1>Liked Songs</h1>
             <h3>{liked_songs.total} liked songs</h3>
 

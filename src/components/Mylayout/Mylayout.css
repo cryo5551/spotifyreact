@@ -12,16 +12,8 @@
     height: 100vh;
     background-color: #040404;
     color: white;
-}
-.__children{
-    flex: 0.8;
-    height: 85vh;
-    color: white;
-    padding: 20px 30px 30px 30px;
-    overflow-y: overlay;
-    background: linear-gradient(rgb(44, 44, 44),rgb(0, 0, 1));
+    position: sticky;
+    /* position:fixed; */
 }
 
-.__children::-webkit-scrollbar {
-    display: none;
-}
+

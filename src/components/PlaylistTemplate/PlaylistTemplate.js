@@ -36,6 +36,13 @@ const PlaylistTemplate = ({ item }) => {
                             dispatch({ type: "SET_CURRENT_PLAYING", payload: null });
                         }
 
+                        else {
+                            dispatch({ type: "SET_CURRENT_PLAYING", payload: item })
+                            setTimeout(() => {
+                                spotify.play()
+                            }, 400);;
+                        }
+
                     })
                 }} /> :
                 <PlayCircleFilledRoundedIcon className={isMouseIn ? "show-icon " : "hide-icon"}
@@ -46,7 +53,7 @@ const PlaylistTemplate = ({ item }) => {
                         spotify.getMyCurrentPlaybackState().then(state => {
                             (state?.is_playing) ? spotify.pause() : setTimeout(() => {
                                 spotify.play()
-                            }, 500);;
+                            }, 400);;
                         })
 
                     }} />}

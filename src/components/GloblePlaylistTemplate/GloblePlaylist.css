@@ -2,14 +2,16 @@
 
 .globle-playlist {
     background-color: #1a1a1a;
-    padding: 18px 16px;
+    padding: 18px 16px 30px 16px;
     border-radius: 5px;
     margin: 15px 10px;
     position: relative;
+    cursor: pointer;
 }
 .globle-playlist > img {
     width: 190px;
-    /* height: 230px; */
+    height: 190px;
+    object-fit: cover;
     border-radius: 5px;
 
 }
@@ -29,17 +31,21 @@
 }
 
 .show-icon-globle {
-    color: #1fdf64;
-    font-size: 55px !important;
+    box-sizing: content-box;
+    color: #1a1a1a;
+    background-color: #1fdf64;
+    font-size: 30px !important;
+    padding: 8.5px;
+    border-radius: 99px;
     z-index: 100;
     position: absolute;
-    right: 15px;
-    top: 50%;
+    right: 22px;
+    top: 51%;
 }
 
 .show-icon-globle:hover {
     transition: transform 0.4s ease-in-out;
-    transform: scale(1.08) !important;
+    transform: scale(1.03) !important;
 }
 
 .hide-icon-globle{

@@ -1,0 +1,43 @@
+.search-songs-title > img {
+    width: 50px;
+    padding: 5px;
+    margin: 0 10px 0 20px;
+}
+
+.search-songs {
+    display: flex;
+    align-items: space-between;
+    padding: 5px;
+    /* width: 45%; */
+}
+
+.search-current-song {
+    display: flex;
+    align-items: space-between;
+    padding: 5px;
+    color: #1fdf64;
+    /* width: 45%; */
+
+}
+
+.search-songs-title {
+    flex: 0.95;
+    display: flex;
+    align-items: center;
+}
+
+.search-songs:hover {
+    background-color: rgb(54, 54, 54);
+    color: white!;
+}
+
+
+.search-songs-info {
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+}
+
+.search-song:hover {
+    background-color: rgb(45, 45, 45);
+}

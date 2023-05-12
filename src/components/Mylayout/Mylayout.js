@@ -1,12 +1,11 @@
 // import React, { Children } from 'react'
 import './Mylayout.css'
 import { getTokenFromUrl } from '../../spotify'
-// import { useContextData } from '../Context/StateProvider'
 import Login from '../LogIn/Login'
-import Header from '../Header/Header'
+// import Header from '../Header/Header'
 import Sidebar from '../Player/Body/Sidebar'
 import Footer from '../Player/Footer/Footer'
-import { useState } from 'react'
+import Main from '../Main/Main'
 
 
 
@@ -16,7 +15,9 @@ const Mylayout = ({ children }) => {
     const _token = hash.access_token;
 
 
-   
+
+    
+
 
     if (!_token) return (
         <Login />
@@ -28,14 +29,17 @@ const Mylayout = ({ children }) => {
             <div className='__sidebar'>
                 <Sidebar />
             </div>
-            <div className='__children'>
-                <Header/>
-                {children}
-            </div>
 
-            {/* <footer className='__footer'> */}
+
+            <Main>
+                <div style={{ padding: "0px 25px 30px 25px" }}>
+                {children}
+                </div>
+            </Main>
+            
+
             <Footer />
-            {/* </footer> */}
+
         </div>
     )
 }

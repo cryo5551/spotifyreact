@@ -8,7 +8,7 @@ import PauseCircleFilledRoundedIcon from '@mui/icons-material/PauseCircleFilledR
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Song from './Songs/Song';
-// import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const Body = ({ playlist }) => {
 
@@ -31,9 +31,11 @@ const Body = ({ playlist }) => {
 
     }, [])
 
+    
+
+
     return (
         <div className='body'>
-            {/* <Header/> */}
 
             <div className='body-info'>
                 <img src={current_playlist?.images[0]?.url} alt='album cover' />
@@ -73,9 +75,8 @@ const Body = ({ playlist }) => {
                     <FavoriteBorderIcon fontSize='large' sx={{ marginRight: 1 }} />
                     <MoreHorizIcon fontSize='large' />
                 </div>
-                {/* list of songs */}
 
-                {/* <div className='song-info'>
+                <div className='song-info'>
                 <div className='song-info1'>
                     <strong>#</strong>
                     <span>TITLE</span>
@@ -86,13 +87,13 @@ const Body = ({ playlist }) => {
                 <AccessTimeIcon/>
                 </div>
                 
-            </div> */}
+            </div>
 
-                {/* <div className='body-tracks'> */}
+               
                 {current_playlist?.tracks.items.map((song, i) =>
                     <Song track={song.track} key={i} />
                 )}
-                {/* </div> */}
+           
             </div>
         </div>
     )

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import './LikedSongs.css'
 import { useContextData } from '../../Context/StateProvider'
-// import PlayCircleFilledIcon from '@mui/icons-material/PlayCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Song from '../../Player/Body/Songs/Song';
 import PlayCircleFilledRoundedIcon from '@mui/icons-material/PlayCircleFilledRounded';
 import PauseCircleFilledRoundedIcon from '@mui/icons-material/PauseCircleFilledRounded';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SpotifyWebApi from 'spotify-web-api-js';
 
 const LikedSongs = () => {
@@ -47,6 +47,11 @@ const LikedSongs = () => {
 
                                 spotify.pause();
                                 dispatch({ type: "SET_CURRENT_PLAYING", payload: null });
+                                spotify.getMyCurrentPlaybackState().then(state => {
+                                    (state?.is_playing) ? spotify.pause() : setTimeout(() => {
+                                        spotify.play()
+                                    }, 400);;
+                                })
                             }
                             } /> :
                             <PlayCircleFilledRoundedIcon className='body-play-shuffle'
@@ -57,16 +62,16 @@ const LikedSongs = () => {
                                     spotify.getMyCurrentPlaybackState().then(state => {
                                         (state?.is_playing) ? spotify.pause() : setTimeout(() => {
                                             spotify.play()
-                                        }, 500);;
+                                        }, 400);;
                                     })
 
                                 }} />}
                         <FavoriteBorderIcon fontSize='large' sx={{ marginRight: 1 }} />
                         <MoreHorizIcon fontSize='large' />
                     </div>
-                    {/* list of songs */}
+                   
 
-                    {/* <div className='song-info'>
+                    <div className='song-info'>
                 <div className='song-info1'>
                     <strong>#</strong>
                     <span>TITLE</span>
@@ -77,7 +82,7 @@ const LikedSongs = () => {
                 <AccessTimeIcon/>
                 </div>
                 
-            </div> */}
+            </div>
 
                     {liked_songs?.items.map((song, i) =>
                         <Song track={song.track} key={i} />

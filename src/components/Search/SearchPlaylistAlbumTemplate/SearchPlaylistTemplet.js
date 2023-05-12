@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import "./GloblePlaylist.css"
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import PauseRoundedIcon from '@mui/icons-material/PauseRounded';
-import { useContextData } from '../Context/StateProvider';
 import { useNavigate } from 'react-router-dom';
+import { useContextData } from '../../Context/StateProvider';
 
-
-const GloblePlayList = ({ playlist, spotify }) => {
+const PlaylistAlbumTemplet = ({ playlist, spotify}) => {
 
     const [{ current_playing }, dispatch] = useContextData();
     const [isMouseIn, setIsMouseIn] = useState(false);
     const navigate = useNavigate();
 
-    return (
-        <div className='globle-playlist' onMouseEnter={() => setIsMouseIn(true)} onMouseLeave={() => setIsMouseIn(false)} >
-            <img src={playlist?.images[0]?.url} alt="albumCover" onClick={() => navigate(`/${playlist?.name}`)} />
+    const handleClick = () => {
+        dispatch( { type: "SET_PLAYLIST_ALBUM", payload: playlist });
+        navigate(`/playlist/${playlist.id}`)
+    }
+    
+  return (
+    <div className='globle-playlist' onMouseEnter={() => setIsMouseIn(true)} onMouseLeave={() => setIsMouseIn(false)} >
+            <img src={playlist?.images[0]?.url} alt="albumCover" onClick={handleClick} />
             <h4>{(playlist?.name?.length > 16) ? playlist?.name.substring(0, 16) + "..." : playlist?.name}</h4>
-            <h5>{playlist?.name?.substring(0, 20)}</h5>
+            <h5>{playlist?.owner?.display_name?.substring(0, 20)}</h5>
 
             {(current_playing?.id === playlist?.id) ? <PauseRoundedIcon className='show-icon-globle'
                 onClick={() => {
@@ -29,7 +32,7 @@ const GloblePlayList = ({ playlist, spotify }) => {
                             dispatch({ type: "SET_CURRENT_PLAYING", payload: playlist })
                             setTimeout(() => {
                                 spotify.play()
-                            }, 500)
+                            }, 300)
                         }
                     })
                 }} /> :
@@ -40,11 +43,11 @@ const GloblePlayList = ({ playlist, spotify }) => {
 
                         setTimeout(() => {
                             spotify.play()
-                        }, 500)
+                        }, 300)
 
                     }} />}
         </div>
-    )
+  )
 }
 
-export default GloblePlayList
+export default PlaylistAlbumTemplet

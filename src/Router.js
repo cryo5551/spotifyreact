@@ -10,6 +10,9 @@ import SadLyf from './components/Library/Playlists/SadLyf'
 import Mylayout from './components/Mylayout/Mylayout'
 import Search from './components/Search/Search'
 import LikedSongs from './components/Library/Playlists/LikedSongs'
+import Mogu from './components/Library/Playlists/Mogu'
+import Playlist from './components/Playlist/Playlist';
+import Album from './components/Album/Album'
 
 
 const Router = () => {
@@ -28,6 +31,10 @@ const Router = () => {
             <Route path='/Nyan' element={<Nyan/>} /> 
             <Route path='/Sad lyf' element={<SadLyf/>} /> 
             <Route path="/liked songs" element={<LikedSongs/>} /> 
+            <Route path="/mogu mogu YUUMY! /もぐもぐYUMMY！" element={<Mogu/>} /> 
+            <Route path="/playlist/:id" element={<Playlist/>} /> 
+            <Route path="/album/:id" element={<Album/>} /> 
+            <Route path="/artist/:id" element={<Album/>} /> 
         </Routes>
         </Mylayout>
         </BrowserRouter>

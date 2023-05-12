@@ -3,7 +3,7 @@
 
 ._liked-song-template {
     width: 37vw;
-    height: 25vw;
+    height: 24vw;
     border-radius: 8px;
     padding: 15px;
     background-color: 5;
@@ -13,6 +13,10 @@
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
+}
+
+._liked-song-template > img {
+    width: 15vw;
 }
 
 ._liked-song-template > h1 {

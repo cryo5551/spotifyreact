@@ -20,7 +20,6 @@
     position: fixed;
     top: 20px;
 
-    
 }
 
 .search-bar > input {
@@ -33,4 +32,24 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.hide-categorys-container {
+    display: none;
+}
+
+.searched-playlists, .searched-albums {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.searched-songs {
+    /* background-color: rgb(24, 24, 24); */
+    width: 45%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.searched-songs > h2 {
+    padding: 12px;
 }
