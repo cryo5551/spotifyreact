@@ -1,10 +1,10 @@
 // https://developer.spotify.com/documentation
 // /web-playback-sdk/quick-start/
 
-export const authEndpoint =
+/* export const authEndpoint =
     "https://accounts.spotify.com/authorize";
 
-const redirectUrl = "https://react-spotify-716d2.web.app/home";
+const redirectUrl = "http://127.0.0.1:3000/";
 
 const clientId = "66bbd63b6bf54ddabd399e63184b22c9";
 
@@ -36,3 +36,4 @@ export const getTokenFromUrl = () => {
             return inititial;
         }, {})
 }
+*/
