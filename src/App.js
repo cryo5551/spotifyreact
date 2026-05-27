@@ -15,7 +15,7 @@ function App() {
 
   const [state, dispatch] = useContextData();
 
-  useEffect(() => {
+/*  useEffect(() => {
     const hash = getTokenFromUrl();
     const _token = hash.access_token;
     if (_token) {
@@ -35,6 +35,40 @@ function App() {
   }, []);
 
   // console.log(token);
+  */
+    useEffect(() => {
+    // Grab the new security "code" from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+
+    if (code) {
+      // Clean up the URL so it looks nice and empty again
+      window.history.pushState({}, null, "/");
+
+      // Trade the code for the actual access token
+      getTokenFromUrl(code).then(token => {
+        if (token) {
+          // Save token
+          dispatch({ type: "SET_TOKEN", payload: token });
+          spotify.setAccessToken(token);
+
+          // Get User Profile
+          spotify.getMe().then(user => {
+            dispatch({ type: "SET_USER", payload: user });
+          });
+
+          // Get User Playlists
+          spotify.getUserPlaylists().then((playlists) => {
+            dispatch({
+              type: "SET_PLAYLISTS",
+              payload: playlists,
+            });
+          });
+        }
+      });
+    }
+  }, []);
+
 
   return (
     <div className="app">
