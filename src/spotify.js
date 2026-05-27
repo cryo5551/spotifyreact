@@ -1,45 +1,8 @@
-// https://developer.spotify.com/documentation
-// /web-playback-sdk/quick-start/
-
-/* export const authEndpoint =
-    "https://accounts.spotify.com/authorize";
-
-const redirectUrl = "http://127.0.0.1:3000/";
-
-const clientId = "66bbd63b6bf54ddabd399e63184b22c9";
-
-const scopes = [
-    "user-read-currently-playing",
-    "user-read-recently-played",
-    "user-read-playback-state",
-    "user-top-read",
-    "user-modify-playback-state",
-    "streaming",
-    "user-read-email",
-    "user-read-private",
-    "user-library-read",
-    "user-library-modify"
-]
-
-export const loginUrl = `${authEndpoint}?client_id=
-${clientId}&redirect_uri=${redirectUrl}
-&scope=${scopes.join("%20")}
-&response_type=token&show_dialog=true`;
-
-export const getTokenFromUrl = () => {
-    return window.location.hash
-        .substring(1)
-        .split("&")
-        .reduce((inititial, e) => {
-            const param = e.split("=")
-            inititial[param[0]] = param[1];
-            return inititial;
-        }, {})
-}
-*/
-export const authEndpoint = "https://accounts.spotify.com/authorize";
-const redirectUri = "http://127.0.0.1:3000/"; // Updated for local testing
-const clientId = "66bbd63b6bf54ddabd399e63184b22c9"; // Your exact Client ID
+// --- 1. CONFIGURATION ---
+const authEndpoint = "https://accounts.spotify.com/authorize";
+const tokenEndpoint = "https://accounts.spotify.com/api/token";
+const redirectUri = "http://127.0.0.1:3000/"; 
+const clientId = "66bbd63b6bf54ddabd399e63184b22c9"; 
 
 const scopes = [
   "user-read-currently-playing",
@@ -54,7 +17,7 @@ const scopes = [
   "user-library-modify"
 ];
 
-// --- 1. PKCE Security Code Generators ---
+// --- 2. PKCE SECURITY CODE GENERATORS ---
 const generateRandomString = (length) => {
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const values = crypto.getRandomValues(new Uint8Array(length));
@@ -62,9 +25,9 @@ const generateRandomString = (length) => {
 };
 
 const sha256 = async (plain) => {
-  const encoder = new TextEncoder()
-  const data = encoder.encode(plain)
-  return window.crypto.subtle.digest('SHA-256', data)
+  const encoder = new TextEncoder();
+  const data = encoder.encode(plain);
+  return window.crypto.subtle.digest('SHA-256', data);
 };
 
 const base64encode = (input) => {
@@ -74,16 +37,17 @@ const base64encode = (input) => {
     .replace(/\//g, '_');
 };
 
-// --- 2. The New Login Trigger ---
+// --- 3. THE LOGIN ACTION ---
 export const loginUrl = async () => {
   const codeVerifier = generateRandomString(64);
   window.localStorage.setItem('code_verifier', codeVerifier);
+  
   const hashed = await sha256(codeVerifier);
   const codeChallenge = base64encode(hashed);
 
   const params = new URLSearchParams({
     client_id: clientId,
-    response_type: 'code', // The new required method
+    response_type: 'code',
     redirect_uri: redirectUri,
     scope: scopes.join(" "),
     code_challenge_method: 'S256',
@@ -93,9 +57,9 @@ export const loginUrl = async () => {
   window.location.href = `${authEndpoint}?${params.toString()}`;
 };
 
-// --- 3. The New Token Extractor ---
+// --- 4. THE TOKEN EXTRACTOR ---
 export const getTokenFromUrl = async (code) => {
-  const verifier = localStorage.getItem("code_verifier");
+  const verifier = window.localStorage.getItem("code_verifier");
 
   const body = new URLSearchParams({
     client_id: clientId,
@@ -105,14 +69,12 @@ export const getTokenFromUrl = async (code) => {
     code_verifier: verifier,
   });
 
-  const response = await fetch("https://accounts.spotify.com/api/token", {
+  const response = await fetch(tokenEndpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: body
   });
 
   const data = await response.json();
-  return data.access_token; // The final secure token
+  return data.access_token;
 };
-
-
