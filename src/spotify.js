@@ -1,8 +1,7 @@
-// --- 1. CONFIGURATION ---
-const authEndpoint = "https://accounts.spotify.com/authorize";
-const tokenEndpoint = "https://accounts.spotify.com/api/token";
-const redirectUri = "http://127.0.0.1:3000/"; 
-const clientId = "66bbd63b6bf54ddabd399e63184b22c9"; 
+export const authEndpoint = "https://accounts.spotify.com/authorize";
+export const tokenEndpoint = "https://accounts.spotify.com/api/token";
+export const redirectUri = "http://127.0.0.1:3000/"; 
+export const clientId = "66bbd63b6bf54ddabd399e63184b22c9"; 
 
 const scopes = [
   "user-read-currently-playing",
@@ -17,7 +16,6 @@ const scopes = [
   "user-library-modify"
 ];
 
-// --- 2. PKCE SECURITY CODE GENERATORS ---
 const generateRandomString = (length) => {
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const values = crypto.getRandomValues(new Uint8Array(length));
@@ -37,11 +35,9 @@ const base64encode = (input) => {
     .replace(/\//g, '_');
 };
 
-// --- 3. THE LOGIN ACTION ---
 export const loginUrl = async () => {
   const codeVerifier = generateRandomString(64);
   window.localStorage.setItem('code_verifier', codeVerifier);
-  
   const hashed = await sha256(codeVerifier);
   const codeChallenge = base64encode(hashed);
 
@@ -57,9 +53,15 @@ export const loginUrl = async () => {
   window.location.href = `${authEndpoint}?${params.toString()}`;
 };
 
-// --- 4. THE TOKEN EXTRACTOR ---
 export const getTokenFromUrl = async (code) => {
+  console.log("🔥 getTokenFromUrl FIRED! Received code:", code);
   const verifier = window.localStorage.getItem("code_verifier");
+  console.log("🔥 Found verifier in storage:", verifier);
+
+  if (!code || !verifier) {
+     console.error("🚨 MISSING CODE OR VERIFIER! Halting fetch.");
+     return null;
+  }
 
   const body = new URLSearchParams({
     client_id: clientId,
@@ -76,5 +78,6 @@ export const getTokenFromUrl = async (code) => {
   });
 
   const data = await response.json();
+  console.log("🔥 Spotify Token Response:", data);
   return data.access_token;
 };
